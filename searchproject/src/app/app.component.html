@@ -6,8 +6,8 @@
     <label>Search Person : </label><input  [(ngModel)]="personname">
     <div class="spaces"></div>
     <div class="row persontable">
-      <div *ngFor="let person of displayPersonList | filterperson:personname">
-        <div class="col-sm-2 personstyle">{{ person }}</div>
+      <div *ngFor="let person of personList | filterperson:personname">
+        <div class="col-sm-2">{{ person }}</div>
       </div>
     </div>
   </h1>

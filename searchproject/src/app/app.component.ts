@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pipe, PipeTransform } from '@angular/core'
 
 @Component({
@@ -6,11 +6,16 @@ import { Pipe, PipeTransform } from '@angular/core'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app works!';
-  personList = ['Sean','Yaw','Lucy','Eric','Rory','Hayley'];
-  displayPersonList = ['Sean','Yaw','Lucy','Eric','Rory','Hayley'];
-  personname = '';
+export class AppComponent implements OnInit {
+  title
+  personList
+  personname ='';
+
+  ngOnInit(){
+    this.title = 'app works!';
+    this.personList = ['Sean','Yaw','Lucy','Eric','Rory','Hayley'];
+    this.personname = '';
+  }
 }
 
 

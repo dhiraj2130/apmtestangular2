@@ -2,14 +2,22 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { FilterPersonPipe } from './fetch-person.pipe';
+
 
 describe('App: Searchproject', () => {
+
+  //var personList = ['Sean','Yaw','Lucy','Eric','Rory','Hayley'];
+
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [ FormsModule ],
       declarations: [
-        AppComponent
+        AppComponent, FilterPersonPipe
       ],
     });
+
   });
 
   it('should create the app', async(() => {
@@ -18,7 +26,17 @@ describe('App: Searchproject', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'app works!'`, async(() => {
+  it('should initialise the personlist, searchstring', () => {
+    let fixture = TestBed.createComponent(AppComponent);
+    let app = fixture.debugElement.componentInstance;
+    app.ngOnInit();
+    expect(app.personname).toBe('');
+    expect(app.personList).toBeDefined();
+    var personList = ['Sean','Yaw','Lucy','Eric','Rory','Hayley'];
+    expect(app.personList).toEqual(personList);
+  });
+
+  xit(`should have as title 'app works!'`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('app works!');
