@@ -7,11 +7,12 @@ import { Pipe, PipeTransform, Input } from '@angular/core'
 export class FilterPersonPipe implements PipeTransform {
 
   transform(personList: String[], searchstring : string) {
-    return personList.filter( (person) => {
-      if(searchstring == ''){
-        return true}
-    else{
-        return(person === searchstring) ;
-      }});
+    return personList.filter( (person) => searchstring ? person === searchstring : true//{
+    //   if(searchstring == ''){
+    //     return true}
+    // else{
+    //     return(person === searchstring) ;
+       //}}
+    );
   }
 }
