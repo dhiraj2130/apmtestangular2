@@ -1,14 +1,15 @@
 <div class="container-fluid">
   <h1>
     {{title}}
+  </h1>
     <div class="spaces"></div>
 
     <label>Search Person : </label><input  [(ngModel)]="personname">
     <div class="spaces"></div>
     <div class="row persontable">
       <div *ngFor="let person of personList | filterperson:personname">
-        <div class="col-sm-2">{{ person }}</div>
+        <span class="col-sm-2">{{ person }}</span>
       </div>
     </div>
-  </h1>
+
 </div>

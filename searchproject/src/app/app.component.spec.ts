@@ -5,10 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPersonPipe } from './fetch-person.pipe';
 
-
 describe('App: Searchproject', () => {
-
-  //var personList = ['Sean','Yaw','Lucy','Eric','Rory','Hayley'];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -48,4 +45,15 @@ describe('App: Searchproject', () => {
     let compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('app works!');
   }));
+
+  it('should diplay all persons in ngfor  tag', () => {
+    let fixture = TestBed.createComponent(AppComponent);
+    let app = fixture.debugElement.componentInstance;
+    fixture.detectChanges();
+    app.personList=['Sean'];
+    fixture.detectChanges();
+    const element = fixture.debugElement.nativeElement;
+    expect(element.querySelectorAll('span').length).toBe(1);
+  });
+
 });
